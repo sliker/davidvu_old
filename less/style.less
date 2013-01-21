@@ -1,0 +1,198 @@
+@import "normalize.less";
+
+@import "global-mobile.less";
+
+/* ===== Primary Styles ========================================================
+   Author: DavidVU | zero.blend@gmail.com
+   ========================================================================== */
+
+/*****************
+	CONSTANTS
+*****************/
+@orange: #ff7301;
+@lightOrange: #fe8420;
+@grey: #919191;
+/*****************
+	MIXINS
+*****************/
+.BorderRadius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	   -moz-border-radius: @radius;
+	        border-radius: @radius;
+}
+.InnerShadow() {
+	-webkit-box-shadow: inset 0 .08em .1em rgba(0,0,0,0.3);
+	   -moz-box-shadow: inset 0 .08em .1em rgba(0,0,0,0.3);
+	        box-shadow: inset 0 .08em .1em rgba(0,0,0,0.3);
+}
+
+.BoxShadow(@x:0em, @y:0.1em, @blur: .2em, @color: #888) {
+	-webkit-box-shadow: @x @y @blur @color;
+	   -moz-box-shadow: @x @y @blur @color;
+	        box-shadow: @x @y @blur @color;
+}
+.TextShadow() {
+	text-shadow: 0 0.05em #fff;
+}
+.BackgroundGradient(@color1: @lightOrange, @color2: @orange) {
+	background: @color2;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@color1), to(@color2));
+	background-image: -webkit-linear-gradient(top, @color1, @color2);
+	background-image: -moz-linear-gradient(top, @color1, @color2);
+}
+/*****************
+	STYLES
+*****************/
+body{
+	background: url('../img/bg.gif');
+	font-weight: 500;
+}
+strong{
+	.TextShadow;
+	font-weight: 700;
+}
+h1,
+h2,
+h3{
+	.TextShadow;
+	color: @grey;
+	font-family: 'Amaranth', sans-serif;
+}
+a,
+a:visited
+{
+	color: @orange;
+	font-weight: 700;
+	font-size:1.1em;
+}
+a:hover{
+	color: @grey;
+	text-decoration: none;
+}
+a:focus{
+	outline: none;
+}
+p.title{
+	.BackgroundGradient;
+	.BorderRadius;
+	.BoxShadow;	
+	color: #fff;
+	font-size: 1.1em;
+}
+section{
+	border-top: .1em solid #dfdfdf;
+	padding: 3.5em 0;
+}
+article footer{
+	text-align: center;
+}
+#nav nav a{
+	.BorderRadius(10px);
+	.InnerShadow();
+	
+	background: #fff;
+	font-family: Helvetica, Helvetica Neue, Arial;
+	font-size: 1em;
+	font-weight: normal;
+	
+	&:hover{		
+		background: @orange;
+	}
+	
+	&.info{
+		background: #fff url('../img/about-btn.gif') 10px center no-repeat;
+		&:hover{
+			background: @orange url('../img/about-btn-hover.png') 10px center no-repeat;
+		}
+	}
+	&.portfolio{
+		background: #fff url('../img/portafolio-btn.gif') 10px center no-repeat;
+		&:hover{
+			background: @orange url('../img/portafolio-btn-hover.png') 10px center no-repeat;
+		}
+	}
+	&.contact{
+		background: #fff url('../img/email-btn.gif') 10px center no-repeat;
+		&:hover{
+			background: @orange url('../img/email-btn-hover.png') 10px center no-repeat;
+		}
+	}
+}
+#header-container{
+	padding-bottom: 10px;
+	nav{
+		margin-top: 40px;
+	}
+}
+#lang{
+	position: relative;
+	float:right;
+	width: 40%;
+	nav{
+		margin:0;
+		padding:0;
+		position: absolute;
+		right:0;
+		top: 0;
+		ul li{
+			display: inline;
+		}
+	}
+}
+#footer-container a{
+	color: #fff;
+	font-weight: normal;
+	text-decoration: none;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+#twitter_update_list{
+	text-align:center;	
+	li {
+		list-style-type: none;
+	}
+}
+.twitter-follow-button{
+	float:right;
+}
+
+.top{
+	background: url('../img/top-btn.png') no-repeat;
+	cursor: pointer;
+	display: block;
+	float: right;
+	height: 27px;
+	margin-top: 2em;
+	width: 26px;
+}
+
+.item{
+	img{
+		.BorderRadius;
+		.BoxShadow;	
+		bakcground: #fff;
+		border: 5px solid #fff;
+		margin-bottom: 10px;
+		width: 97%;
+	}
+}
+
+
+
+span.phone{
+	.TextShadow;
+	color: @grey;
+	font-size: 2.2em;
+	font-weight: 700;
+	letter-spacing: -0.1em;
+}
+
+.clearfix-mobile{
+	clear:none;
+}
+
+@import "media-queries.less";
+@import "helpers.less";
+@import "photoswipe.less";
+@import "print.less";
